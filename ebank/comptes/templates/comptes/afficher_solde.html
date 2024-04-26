@@ -1,0 +1,78 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+ 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'comptes/index.css' %}" />
+    <link href="{% static 'comptes/styles.css' %}" rel="stylesheet" />
+    <title>Solde du compte bancaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        p {
+            color: #777;
+        }
+        
+        .article-details {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+        
+        .article-details h2 {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .article-details p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .article-details .meta-info {
+            color: #888;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <h1>Compte</h1>
+          <nav>
+            <ul>
+            <li><a href="{% url 'compte_list'  %}" id = "Accueil">Accueil</a></li>
+           
+              
+      
+            </ul>
+          </nav>
+        </div>
+      </header>
+    <div class="article-details">
+        <h2> Numéro compte :{{ compte.numero_compte  }}</h2>
+        <p> solde : {{ compte.solde }}</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'depot' compte.id %}">Effectuer un dépôt</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'retrait' compte.id%}">Effectuer un retrait</a>
+        
+    </div>
+</body>
+</html>
+

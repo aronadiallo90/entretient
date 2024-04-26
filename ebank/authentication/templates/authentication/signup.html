@@ -1,0 +1,52 @@
+
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'authentication/styles.css' %}" />
+    <title>Login</title>
+</head>
+<body>      
+    <div class = "center">
+
+        <h1>Signup</h1>
+
+        <form method="post" >
+            {% for field in form %}
+                    <div class="txt_field">
+                        {{ field}}
+                        <span></span>
+                        <label for="{{ field.id_for_label }}">{{field.label}} :</label>
+                    
+                    </div>
+            {% endfor %}
+
+           
+
+
+
+            
+            
+          
+           <input type="submit" value="Signup">
+            {%  csrf_token %}
+            <div class="signup_link">
+                    Déjà Membre ! <a href="{% url 'login' %}">login</a>
+
+            </div> 
+        </form>
+
+
+    </div>
+    
+    
+    
+</body>
+</html>

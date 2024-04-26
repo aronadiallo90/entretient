@@ -1,0 +1,65 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="{% static 'comptes/css/styles.css' %}" />
+
+    
+    <title>Ajouter un compte bancaire</title>
+</head>
+<body>      
+    <div class = "center">
+
+        <h1>Ajouter un compte bancaire</h1>
+
+        <form method="post" action="" >
+            {% csrf_token %}
+
+            
+                    <div class="txt_field">
+                        <input type="text" id="numero_compte" name="numero_compte">
+                        <span></span>
+                        <label for="numero_compte">Numéro de compte  :</label>
+                    
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" id="solde" name="solde">
+                        <span></span>
+                        <label for="solde">Solde  :</label>
+                    
+                    </div>
+            
+
+           
+
+
+
+            
+            
+          
+           <input type="submit" value="Ajouter">
+           {%  csrf_token %}
+            <div class="signup_link">
+                    <a href="{% url 'logout' %}">Logout</a>
+
+            </div> 
+            
+            
+        </form>
+       
+
+    </div>
+    
+    
+    
+</body>
+</html>
+

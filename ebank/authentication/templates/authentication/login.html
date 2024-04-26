@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'authentication/styles.css' %}" />
+    <title>Login</title>
+</head>
+<body>      
+    <div class = "center">
+        {%  if user.is_authenticated %}
+        <p>Vous êtes connecté en tant que {{ request.user }}. <a href="{% url 'logout' %}">Se déconnecter</a></p>
+        {% endif %}
+        <h1>Login</h1>
+
+        <form method="post" >
+             {% for field in form %}
+                    <div class="txt_field">
+                        {{ field}}
+                        <span></span>
+                        <label for="{{ field.id_for_label }}">{{field.label}} :</label>
+                       
+                    </div>
+            {% endfor %}
+
+            <!-- <div class="txt_field">
+                {{ form.username }}
+                <span></span>
+                <label for="{{ form.username.id_for_label }}">{{form.username.label}} :</label>
+                
+            </div>
+            <div class="txt_field">
+                {{ form.password }}
+                <span></span>
+                <label for="{{ form.password.id_for_label }}">{{form.password.label}} :</label>
+                
+            </div> -->
+  
+           <div class="pass">Forgot Password !</div>
+           <input type="submit" value="Login">
+            {%  csrf_token %}
+            <div class="signup_link">
+                    Not a member ! <a href="{% url 'signup' %}">Signup</a>
+
+            </div> 
+            
+        </form>
+
+
+    </div>
+    
+
+</body>
+</html>

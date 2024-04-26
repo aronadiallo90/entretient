@@ -1,0 +1,54 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'comptes/css/styles.css' %}" />
+    <title>Effectuer une opération</title>
+</head>
+<body>      
+    <div class = "center">
+
+        <h1>Effectuer l'opération</h1>
+
+        <form method="post" action="" >
+            {% csrf_token %}
+
+            
+                    <div class="txt_field">
+                        <input type="text" id="montant" name="montant">
+                        <span></span>
+                        <label for="montant">montant :</label>
+                    
+                    </div>
+            
+
+           
+
+
+
+            
+            
+          
+           <input type="submit" value="confirmer">
+           {%  csrf_token %}
+            <div class="signup_link">
+                    <a href="{% url 'logout' %}">Logout</a>
+
+            </div> 
+            
+            
+        </form>
+       
+
+    </div>
+    
+    
+    
+</body>
+</html>
+
