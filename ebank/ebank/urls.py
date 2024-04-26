@@ -35,4 +35,5 @@ urlpatterns = [
     path('comptes/<int:compte_id>/depot/', lambda request, compte_id: comptes.views.effectuer_operation(request, 'depot', compte_id), name='depot'),
     path('comptes/<int:compte_id>/retrait/', lambda request, compte_id: comptes.views.effectuer_operation(request, 'retrait', compte_id), name='retrait'),
     path('comptes/<int:compte_id>/solde/', comptes.views.afficher_solde, name='afficher_solde'),
+    path('retrait_impossible/', comptes.views.retrait_impossible, name='retrait_impossible'),  # Ajoutez un chemin pour accepter le paramètre compte_id
 ]
